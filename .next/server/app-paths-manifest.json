@@ -1,5 +1,0 @@
-{
-  "/page": "app/page.js",
-  "/@modal/(.)users/[id]/page": "app/@modal/(.)users/[id]/page.js",
-  "/users/[id]/page": "app/users/[id]/page.js"
-}

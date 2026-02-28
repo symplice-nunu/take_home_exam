@@ -1,21 +1,18 @@
 import { notFound } from "next/navigation";
-import type { User } from "@/types/user";
+import type { Metadata } from "next";
+import { getUser } from "@/lib/api";
 import BackButton from "@/components/BackButton";
 import UserDetailContent from "@/components/UserDetailContent";
 
-async function getUser(id: string): Promise<User | null> {
-  try {
-    const res = await fetch(
-      `https://jsonplaceholder.typicode.com/users/${id}`,
-      { next: { revalidate: 60 } }
-    );
-    if (!res.ok) return null;
-    const data = await res.json();
-    if (!data || !data.id) return null;
-    return data as User;
-  } catch {
-    return null;
-  }
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata> {
+  const user = await getUser(params.id);
+  return {
+    title: user ? `${user.name} — User Directory` : "User Not Found",
+  };
 }
 
 export default async function UserPage({

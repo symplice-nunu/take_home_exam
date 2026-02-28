@@ -1,19 +1,12 @@
+import type { CSSProperties } from "react";
 import Link from "next/link";
 import type { User } from "@/types/user";
+import { getInitials } from "@/utils/formatUser";
 
 interface Props {
   user: User;
   animationDelay: number;
   searchParams?: string;
-}
-
-function getInitials(name: string): string {
-  return name
-    .split(" ")
-    .map((part) => part[0])
-    .join("")
-    .toUpperCase()
-    .slice(0, 2);
 }
 
 export default function UserCard({ user, animationDelay, searchParams }: Props) {
@@ -25,8 +18,8 @@ export default function UserCard({ user, animationDelay, searchParams }: Props) 
   return (
     <Link
       href={href}
-      className="group relative block rounded-xl bg-white p-6 shadow-sm ring-1 ring-gray-200 transition-all hover:shadow-md hover:ring-primary/40"
-      style={{ animationDelay: `${animationDelay}ms` }}
+      className="animate-fade-in-up group relative block rounded-xl bg-white p-6 shadow-sm ring-1 ring-gray-200 transition-all hover:shadow-md hover:ring-primary/40"
+      style={{ "--delay": `${animationDelay}ms` } as CSSProperties}
     >
       <div className="flex items-start gap-4">
         <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-primary text-lg font-bold text-white group-hover:bg-primary/90 transition-colors">

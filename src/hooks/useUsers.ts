@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import type { User } from "@/types/user";
+import { API_BASE } from "@/lib/api";
 
 interface UseUsersResult {
   users: User[];
@@ -21,10 +22,9 @@ export function useUsers(): UseUsersResult {
       try {
         setIsLoading(true);
         setError(null);
-        const res = await fetch(
-          "https://jsonplaceholder.typicode.com/users",
-          { signal: controller.signal }
-        );
+        const res = await fetch(`${API_BASE}/users`, {
+          signal: controller.signal,
+        });
         if (!res.ok) {
           throw new Error(`Failed to fetch users (${res.status})`);
         }

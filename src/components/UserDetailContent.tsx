@@ -1,4 +1,6 @@
+import type { ReactNode } from "react";
 import type { User } from "@/types/user";
+import { getInitials } from "@/utils/formatUser";
 
 export default function UserDetailContent({ user }: { user: User }) {
   return (
@@ -7,12 +9,7 @@ export default function UserDetailContent({ user }: { user: User }) {
       <div className="border-b border-gray-100 bg-gradient-to-b from-primary/5 to-white px-8 py-6">
         <div className="flex items-center gap-6">
           <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-primary text-2xl font-bold text-white shadow-md">
-            {user.name
-              .split(" ")
-              .map((n) => n[0])
-              .join("")
-              .toUpperCase()
-              .slice(0, 2)}
+            {getInitials(user.name)}
           </div>
           <div className="min-w-0 flex-1">
             <h1 className="truncate text-3xl font-bold text-gray-900">
@@ -126,7 +123,7 @@ function ContactCard({
   href, 
   external 
 }: { 
-  icon: React.ReactNode;
+  icon: ReactNode;
   label: string;
   value: string;
   href?: string;
@@ -169,7 +166,7 @@ function ContactCard({
   return content;
 }
 
-function AddressCard({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
+function AddressCard({ icon, label, value }: { icon: ReactNode; label: string; value: string }) {
   return (
     <div className="flex items-start gap-3 rounded-xl bg-white p-4 shadow-sm ring-1 ring-gray-200">
       <div className="shrink-0 text-primary">{icon}</div>

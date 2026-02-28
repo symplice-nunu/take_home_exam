@@ -3,6 +3,8 @@
 import { useState, useMemo } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import type { SortOrder } from "@/types/user";
+
+const VALID_SORT_ORDERS: readonly SortOrder[] = ["original", "asc", "desc"];
 import { useUsers } from "@/hooks/useUsers";
 import { filterUsers } from "@/utils/filterUsers";
 import SearchBar from "./SearchBar";
@@ -19,9 +21,12 @@ export default function UserDirectory() {
   const [search, setSearch] = useState(
     () => searchParams.get("search") ?? ""
   );
-  const [sort, setSort] = useState<SortOrder>(
-    () => (searchParams.get("sort") as SortOrder) ?? "original"
-  );
+  const [sort, setSort] = useState<SortOrder>(() => {
+    const param = searchParams.get("sort");
+    return VALID_SORT_ORDERS.includes(param as SortOrder)
+      ? (param as SortOrder)
+      : "original";
+  });
 
   const { users, isLoading, error } = useUsers();
 
