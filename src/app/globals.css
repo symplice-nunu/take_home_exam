@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.animate-fade-in-up {
+  animation-delay: var(--delay, 0ms);
+}
