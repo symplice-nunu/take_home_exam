@@ -52,20 +52,31 @@ export default function UserDirectory() {
 
   return (
     <div>
-      <div className="mb-6 flex flex-col gap-3 sm:flex-row">
-        <SearchBar value={search} onChange={handleSearch} />
-        <SortToggle sort={sort} onToggle={handleSort} />
+      <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+        <div className="flex-1">
+          <SearchBar value={search} onChange={handleSearch} />
+        </div>
+        <div className="sm:w-auto">
+          <SortToggle sort={sort} onToggle={handleSort} />
+        </div>
       </div>
 
-      {isLoading ? (
-        <LoadingSpinner />
-      ) : error ? (
-        <ErrorMessage message={error} />
-      ) : filtered.length === 0 ? (
-        <EmptyState />
-      ) : (
-        <UserList users={filtered} searchParams={currentParams} />
-      )}
+      <div className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
+        {isLoading ? (
+          <LoadingSpinner />
+        ) : error ? (
+          <ErrorMessage message={error} />
+        ) : filtered.length === 0 ? (
+          <EmptyState />
+        ) : (
+          <>
+            <div className="mb-4 text-sm text-gray-500">
+              Showing {filtered.length} {filtered.length === 1 ? 'user' : 'users'}
+            </div>
+            <UserList users={filtered} searchParams={currentParams} />
+          </>
+        )}
+      </div>
     </div>
   );
 }

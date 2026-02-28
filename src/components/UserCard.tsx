@@ -25,21 +25,37 @@ export default function UserCard({ user, animationDelay, searchParams }: Props) 
   return (
     <Link
       href={href}
-      className="animate-fade-in-up block rounded-xl border border-gray-200 bg-white p-5 shadow-sm hover:shadow-md hover:border-blue-300 transition-all"
-      style={{ "--delay": `${animationDelay}ms` } as React.CSSProperties}
+      className="group relative block rounded-xl bg-white p-6 shadow-sm ring-1 ring-gray-200 transition-all hover:shadow-md hover:ring-blue-300"
+      style={{ animationDelay: `${animationDelay}ms` }}
     >
-      <div className="flex items-center gap-4">
-        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-700 font-bold text-lg">
+      <div className="flex items-start gap-4">
+        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-lg font-semibold text-blue-700 group-hover:bg-blue-100 transition-colors">
           {getInitials(user.name)}
         </div>
-        <div className="min-w-0">
-          <p className="truncate font-semibold text-gray-900">{user.name}</p>
-          <p className="truncate text-sm text-gray-500">{user.email}</p>
-          <p className="truncate text-xs text-gray-400 mt-0.5">
-            {user.address.city}
-          </p>
+        <div className="min-w-0 flex-1">
+          <h3 className="truncate font-semibold text-gray-900 group-hover:text-blue-700 transition-colors">
+            {user.name}
+          </h3>
+          <p className="truncate text-sm text-gray-500 mt-0.5">{user.email}</p>
+          <div className="mt-2 flex items-center gap-1 text-xs text-gray-400">
+            <svg
+              className="h-3.5 w-3.5"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M20 10c0 4.418-8 12-8 12s-8-7.582-8-12a8 8 0 1 1 16 0Z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            <span className="truncate">{user.address.city}</span>
+          </div>
         </div>
       </div>
+      <div className="absolute inset-x-0 bottom-0 h-1 w-0 rounded-b-xl bg-blue-500 transition-all group-hover:w-full" />
     </Link>
   );
 }
