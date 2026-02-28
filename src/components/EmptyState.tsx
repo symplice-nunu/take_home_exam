@@ -1,7 +1,7 @@
 export default function EmptyState() {
   return (
     <div className="flex flex-col items-center justify-center py-16 text-center">
-      <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-gray-100">
+      <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
         <span className="text-4xl">🔍</span>
       </div>
       <h3 className="mb-2 text-lg font-semibold text-gray-900">No users found</h3>

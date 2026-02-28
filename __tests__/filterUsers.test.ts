@@ -55,6 +55,38 @@ describe("filterUsers", () => {
     it("returns empty array when no match", () => {
       expect(filterUsers(USERS, "zzzzzz", "original")).toHaveLength(0);
     });
+
+    it("filters by email", () => {
+      const result = filterUsers(USERS, "alice.smith@example.com", "original");
+      expect(result).toHaveLength(1);
+      expect(result[0].name).toBe("Alice Smith");
+    });
+
+    it("filters by username", () => {
+      const result = filterUsers(USERS, "charlie.brown", "original");
+      expect(result).toHaveLength(1);
+      expect(result[0].name).toBe("Charlie Brown");
+    });
+
+    it("filters by city", () => {
+      const withCity = [
+        makeUser(1, "Charlie Brown", "Springfield"),
+        makeUser(2, "Alice Smith", "Shelbyville"),
+        makeUser(3, "Bob Jones", "Springfield"),
+      ];
+      const result = filterUsers(withCity, "springfield", "original");
+      expect(result).toHaveLength(2);
+    });
+
+    it("filters by phone", () => {
+      const result = filterUsers(USERS, "555-1234", "original");
+      expect(result).toHaveLength(3);
+    });
+
+    it("filters by company name", () => {
+      const result = filterUsers(USERS, "acme", "original");
+      expect(result).toHaveLength(3);
+    });
   });
 
   describe("sorting", () => {

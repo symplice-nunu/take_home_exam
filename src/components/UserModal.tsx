@@ -38,7 +38,7 @@ export default function UserModal({ children }: { children: React.ReactNode }) {
         <button
           onClick={close}
           aria-label="Close modal"
-          className="absolute right-4 top-4 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-gray-500 hover:bg-gray-200 hover:text-gray-700 transition-colors"
+          className="absolute right-4 top-4 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-gray-500 hover:bg-danger hover:text-white transition-colors shadow-sm"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

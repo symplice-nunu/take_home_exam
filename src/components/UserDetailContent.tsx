@@ -4,9 +4,9 @@ export default function UserDetailContent({ user }: { user: User }) {
   return (
     <div className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200">
       {/* Header with user initials and basic info */}
-      <div className="border-b border-gray-100 bg-gradient-to-b from-gray-50 to-white px-8 py-6">
+      <div className="border-b border-gray-100 bg-gradient-to-b from-primary/5 to-white px-8 py-6">
         <div className="flex items-center gap-6">
-          <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-blue-600 text-2xl font-bold text-white shadow-md">
+          <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-primary text-2xl font-bold text-white shadow-md">
             {user.name
               .split(" ")
               .map((n) => n[0])
@@ -29,7 +29,7 @@ export default function UserDetailContent({ user }: { user: User }) {
 
       {/* Contact Information Section */}
       <div className="px-8 py-6">
-        <h2 className="mb-4 text-lg font-semibold text-gray-900">Contact Information</h2>
+        <h2 className="mb-4 border-l-4 border-gold pl-3 text-lg font-semibold text-gray-900">Contact Information</h2>
         <div className="grid gap-4 sm:grid-cols-2">
           <ContactCard
             icon={
@@ -79,7 +79,7 @@ export default function UserDetailContent({ user }: { user: User }) {
 
       {/* Address Section */}
       <div className="border-t border-gray-100 bg-gray-50 px-8 py-6">
-        <h2 className="mb-4 text-lg font-semibold text-gray-900">Address</h2>
+        <h2 className="mb-4 border-l-4 border-gold pl-3 text-lg font-semibold text-gray-900">Address</h2>
         <div className="grid gap-4 sm:grid-cols-2">
           <AddressCard
             icon={
@@ -104,7 +104,7 @@ export default function UserDetailContent({ user }: { user: User }) {
         </div>
 
         {/* Company Info Section */}
-        <div className="mt-6 rounded-xl bg-white p-5 shadow-sm ring-1 ring-gray-200">
+        <div className="mt-6 rounded-xl bg-white p-5 shadow-sm ring-1 ring-gold/30 border-t-2 border-gold">
           <h3 className="text-sm font-medium uppercase tracking-wider text-gray-400">
             Company Catchphrase
           </h3>
@@ -133,8 +133,8 @@ function ContactCard({
   external?: boolean;
 }) {
   const content = (
-    <div className="flex items-start gap-3 rounded-xl bg-gray-50 p-4 transition-all hover:bg-white hover:shadow-sm">
-      <div className="shrink-0 text-gray-400">{icon}</div>
+    <div className="flex items-start gap-3 rounded-xl bg-gray-50 p-4 transition-all hover:bg-white hover:shadow-sm hover:ring-1 hover:ring-primary/20">
+      <div className="shrink-0 text-primary">{icon}</div>
       <div className="min-w-0 flex-1">
         <p className="text-xs font-medium uppercase tracking-wider text-gray-400">
           {label}
@@ -144,7 +144,7 @@ function ContactCard({
         </p>
       </div>
       {href && (
-        <div className="shrink-0 text-gray-400">
+        <div className="shrink-0 text-primary/50">
           <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
           </svg>
@@ -172,7 +172,7 @@ function ContactCard({
 function AddressCard({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
   return (
     <div className="flex items-start gap-3 rounded-xl bg-white p-4 shadow-sm ring-1 ring-gray-200">
-      <div className="shrink-0 text-gray-400">{icon}</div>
+      <div className="shrink-0 text-primary">{icon}</div>
       <div>
         <p className="text-xs font-medium uppercase tracking-wider text-gray-400">
           {label}

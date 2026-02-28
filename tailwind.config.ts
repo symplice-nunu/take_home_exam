@@ -8,6 +8,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: "#384da1",
+        gold: "#ca9e0b",
+        danger: "#ed1c24",
+      },
       keyframes: {
         fadeInUp: {
           "0%": { opacity: "0", transform: "translateY(20px)" },

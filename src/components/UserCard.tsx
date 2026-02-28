@@ -25,15 +25,15 @@ export default function UserCard({ user, animationDelay, searchParams }: Props) 
   return (
     <Link
       href={href}
-      className="group relative block rounded-xl bg-white p-6 shadow-sm ring-1 ring-gray-200 transition-all hover:shadow-md hover:ring-blue-300"
+      className="group relative block rounded-xl bg-white p-6 shadow-sm ring-1 ring-gray-200 transition-all hover:shadow-md hover:ring-primary/40"
       style={{ animationDelay: `${animationDelay}ms` }}
     >
       <div className="flex items-start gap-4">
-        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-lg font-semibold text-blue-700 group-hover:bg-blue-100 transition-colors">
+        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-primary text-lg font-bold text-white group-hover:bg-primary/90 transition-colors">
           {getInitials(user.name)}
         </div>
         <div className="min-w-0 flex-1">
-          <h3 className="truncate font-semibold text-gray-900 group-hover:text-blue-700 transition-colors">
+          <h3 className="truncate font-semibold text-gray-900 group-hover:text-primary transition-colors">
             {user.name}
           </h3>
           <p className="truncate text-sm text-gray-500 mt-0.5">{user.email}</p>
@@ -55,7 +55,7 @@ export default function UserCard({ user, animationDelay, searchParams }: Props) 
           </div>
         </div>
       </div>
-      <div className="absolute inset-x-0 bottom-0 h-1 w-0 rounded-b-xl bg-blue-500 transition-all group-hover:w-full" />
+      <div className="absolute inset-x-0 bottom-0 h-1 w-0 rounded-b-xl bg-gold transition-all group-hover:w-full" />
     </Link>
   );
 }

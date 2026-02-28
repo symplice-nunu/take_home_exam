@@ -23,10 +23,10 @@ export default function SearchBar({ value, onChange }: Props) {
       </div>
       <input
         type="text"
-        placeholder="Search users by name, email, or city..."
+        placeholder="Search by name, username, email, phone, city, or company..."
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="block w-full rounded-xl border-0 bg-gray-50 py-3.5 pl-11 pr-12 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+        className="block w-full rounded-xl border-0 bg-gray-50 py-3.5 pl-11 pr-12 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
       />
       {value && (
         <button

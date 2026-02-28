@@ -8,7 +8,19 @@ export function filterUsers(
   const trimmed = query.trim().toLowerCase();
 
   const filtered = trimmed
-    ? users.filter((u) => u.name.toLowerCase().includes(trimmed))
+    ? users.filter((u) =>
+        [
+          u.name,
+          u.username,
+          u.email,
+          u.phone,
+          u.website,
+          u.address.city,
+          u.company.name,
+        ]
+          .map((v) => v.toLowerCase())
+          .some((v) => v.includes(trimmed))
+      )
     : users;
 
   if (sort === "original") return filtered;

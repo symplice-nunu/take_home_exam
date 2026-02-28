@@ -70,8 +70,11 @@ export default function UserDirectory() {
           <EmptyState />
         ) : (
           <>
-            <div className="mb-4 text-sm text-gray-500">
-              Showing {filtered.length} {filtered.length === 1 ? 'user' : 'users'}
+            <div className="mb-4 flex items-center gap-2 text-sm text-gray-500">
+              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">
+                {filtered.length}
+              </span>
+              {filtered.length === 1 ? 'user found' : 'users found'}
             </div>
             <UserList users={filtered} searchParams={currentParams} />
           </>
