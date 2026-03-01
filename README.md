@@ -32,6 +32,8 @@ A Next.js 14 application that fetches users from [JSONPlaceholder](https://jsonp
 ## Getting Started
 
 ```bash
+git clone https://github.com/symplice-nunu/take_home_exam.git
+cd take_home_exam
 npm install
 npm run dev
 ```
