@@ -15,7 +15,7 @@ A Next.js 14 application that fetches users from [JSONPlaceholder](https://jsonp
 - [Modal Pattern](#modal-pattern)
 - [Testing](#testing)
 - [Design Decisions](#design-decisions)
-- [Known Constraints](#known-constraints)
+- [Assumptions](#assumptions)
 - [Potential Improvements](#potential-improvements)
 
 ---
@@ -200,7 +200,7 @@ React's strict mode mounts effects twice in development. Without cleanup, the fi
 
 ---
 
-## Known Constraints
+## Assumptions
 
 - **Dataset size** — JSONPlaceholder returns exactly 10 users. No pagination is implemented; the full list is held in memory on the client. This is appropriate for the dataset; it is a deliberate scope decision, not an oversight.
 - **Cache TTL** — Server-side fetches use `revalidate: 60`. Stale data can be served for up to 60 seconds. An on-demand revalidation endpoint is not implemented.
